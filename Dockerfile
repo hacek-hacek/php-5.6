@@ -37,8 +37,8 @@ RUN ln -snf /usr/share/zoneinfo/UTC /etc/localtime && echo UTC > /etc/timezone
 RUN "date"
 
 # install xdebug
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
+#RUN pecl install xdebug
+#RUN docker-php-ext-enable xdebug
 RUN echo "error_reporting = E_ALL" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "display_startup_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "display_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
