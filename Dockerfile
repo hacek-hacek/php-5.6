@@ -51,8 +51,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --version=1.6.5 --instal
 RUN composer --version
 
 # install redis extension
-RUN pecl install redis
-RUN docker-php-ext-enable redis
+#RUN pecl install redis
+#RUN docker-php-ext-enable redis
 
 RUN echo 'alias sf="php app/console"' >> ~/.bashrc
 RUN echo 'alias sf3="php bin/console"' >> ~/.bashrc
