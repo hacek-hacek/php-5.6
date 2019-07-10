@@ -12,11 +12,11 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     curl \
-    wget \
-    libpng-dev \
+    wget \       
     ssmtp
 
 #zlib1g-dev \
+#libpng-dev \
 
 RUN docker-php-ext-install \
     pdo \
