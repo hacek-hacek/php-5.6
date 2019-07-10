@@ -6,7 +6,6 @@ RUN echo "deb-src http://archive.debian.org/debian/ jessie main\n" >> /etc/apt/s
 RUN echo "deb http://security.debian.org jessie/updates main\n" >> /etc/apt/sources.list
 RUN echo "deb-src http://security.debian.org jessie/updates main" >> /etc/apt/sources.list
 
-RUN apt-get remove zlibg1
 
 RUN apt-get update && apt-get install -y -f \
     openssl \
