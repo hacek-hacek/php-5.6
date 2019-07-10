@@ -7,7 +7,7 @@ RUN echo "deb http://security.debian.org jessie/updates main\n" >> /etc/apt/sour
 RUN echo "deb-src http://security.debian.org jessie/updates main" >> /etc/apt/sources.list
 
 
-RUN apt-get update && apt-get install -y -f \
+RUN apt-get update && apt-get install --allow-downgrades -y -f \
     openssl \
     git \
     unzip \
