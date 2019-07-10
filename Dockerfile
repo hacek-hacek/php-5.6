@@ -56,5 +56,5 @@ RUN composer --version
 
 RUN echo 'alias sf="php app/console"' >> ~/.bashrc
 RUN echo 'alias sf3="php bin/console"' >> ~/.bashrc
-
+RUN chsh -s /bin/bash
 WORKDIR /var/www/html
