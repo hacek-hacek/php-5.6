@@ -6,6 +6,7 @@ RUN echo "deb-src http://archive.debian.org/debian/ jessie main\n" >> /etc/apt/s
 RUN echo "deb http://security.debian.org jessie/updates main\n" >> /etc/apt/sources.list
 RUN echo "deb-src http://security.debian.org jessie/updates main" >> /etc/apt/sources.list
 
+RUN apt-get remove zlibg1
 
 RUN apt-get update && apt-get install -y -f \
     openssl \
@@ -13,7 +14,7 @@ RUN apt-get update && apt-get install -y -f \
     unzip \
     curl \
     wget \ 
-    zlib1g \
+    zlib1g=1:1.2.8.dfsg-2+b1 \
     zlib1g-dev \
     libpng-dev \      
     ssmtp
