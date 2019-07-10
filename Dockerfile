@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     curl \
     wget \ 
+    zlib1g \
     zlib1g-dev \
     libpng-dev \      
     ssmtp
