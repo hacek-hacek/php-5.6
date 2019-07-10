@@ -1,6 +1,10 @@
+FROM php:5.6-fpm
 
-FROM atnurgaliev/php56
 
+RUN echo "deb http://archive.debian.org/debian/ jessie main\n"  > /etc/apt/sources.list
+RUN echo "deb-src http://archive.debian.org/debian/ jessie main\n" >> /etc/apt/sources.list
+RUN echo "deb http://security.debian.org jessie/updates main\n" >> /etc/apt/sources.list
+RUN echo "deb-src http://security.debian.org jessie/updates main" >> /etc/apt/sources.list
 
 
 RUN apt-get update && apt-get install -y \
@@ -26,6 +30,7 @@ RUN docker-php-ext-install \
     opcache
 
 
+
 # Set timezone
 RUN ln -snf /usr/share/zoneinfo/UTC /etc/localtime && echo UTC > /etc/timezone
 RUN "date"
@@ -40,6 +45,9 @@ RUN echo "xdebug.remote_enable=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xd
 RUN echo "xdebug.remote_connect_back=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.idekey=\"PHPSTORM\"" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+RUN curl -sS https://getcomposer.org/installer | php -- --version=1.6.5 --install-dir=/usr/local/bin --filename=composer
+RUN composer --version
 
 # install redis extension
 RUN pecl install redis
